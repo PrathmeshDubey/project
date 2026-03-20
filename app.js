@@ -7,7 +7,7 @@ const app = express();
 const mongoose = require("mongoose");
 const path = require("path");
 const methodOverride = require('method-override');
-const ejsMate = require("ejs-Mate");
+const engine = require("ejs-mate");
 const ExpressError = require("./utils/ExpressError.js");
 const session = require("express-session");
 const MongoStore = require("connect-mongo").default;
@@ -38,7 +38,7 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
-app.engine("ejs", ejsMate);
+app.engine("ejs", engine);
 app.use(express.static(path.join(__dirname, "/public")));
 mongoose.set("strictPopulate", false);
 
