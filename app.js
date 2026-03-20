@@ -43,7 +43,7 @@ app.use(express.static(path.join(__dirname, "/public")));
 mongoose.set("strictPopulate", false);
 
 const store = MongoStore.create({
-    mongoUrl: dbUrl,
+    mongoUrl: process.env.ATLASDB_URL,
     crypto: {
         secret: process.env.SECRET,
     },
