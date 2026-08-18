@@ -41,6 +41,15 @@
 
         return res.redirect(`/listings/${id}`);
     }
+    if (!req.user) {
+
+        req.flash(
+            "error",
+            "Please login first."
+        );
+
+        return res.redirect("/login");
+    }
          if(!listing.owner.equals(req.User._id)) {
             req.flash("error", "you are not the owner of the listing");
             return res.redirect(`/listings/${id}`);

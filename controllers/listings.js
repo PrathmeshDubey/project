@@ -165,6 +165,19 @@ module.exports.showListing = async (req, res) => {
 
 module.exports.createListing = async (req, res) => {
 
+     console.log("USER:", req.user);
+    console.log("BODY:", req.body);
+    console.log("FILE:", req.file);
+
+    if (!req.user) {
+        req.flash(
+            "error",
+            "You must be logged in to create a listing."
+        );
+
+        return res.redirect("/login");
+    }
+
     const response = await geocodingClient.forwardGeocode({
         query: req.body.listing.location,
         limit: 1

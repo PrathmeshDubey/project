@@ -1,7 +1,7 @@
 <% layout("/layouts/boilerplate") %>
 <script>
   const mapToken = "<%= process.env.MAP_TOKEN %>";
-  const listing = <%- JSON.stringify(listing) %>;
+  const listing = "<%- JSON.stringify(listing) %>";
 </script>
 <div class="row mt-3">
   <div class="col-8 offset-2">
@@ -23,7 +23,11 @@
     
     
     <br />
-<% if(currUser && listing.owner._id.equals(currUser._id)) { %>
+<% if (
+    currUser &&
+    listing.owner &&
+    listing.owner._id.toString() === currUser._id.toString()
+) { %>
   <div class="btns">
       <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark col-1 offset-2 edit-btn">Edit </a>
    
