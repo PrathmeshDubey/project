@@ -29,13 +29,27 @@
     listing.owner._id.toString() === currUser._id.toString()
 ) { %>
   <div class="btns">
-      <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark col-1 offset-2 edit-btn">Edit </a>
-   
-      <form action="/listings/<%= listing._id %>?_method=DELETE" method="POST">
-  <button class="btn btn-dark  offset-5" type="submit">Delete </button>
-  </form>
-  </div>
-  <% } %>
+     <a
+    href="/listings/<%= listing._id %>/edit"
+    class="btn btn-dark"
+>
+    Edit
+</a>
+
+<form
+    action="/listings/<%= listing._id %>?_method=DELETE"
+    method="POST"
+    style="display:inline;"
+>
+    <button
+        type="submit"
+        class="btn btn-danger"
+    >
+        Delete
+    </button>
+</form>
+
+<% } %>
   
 
 

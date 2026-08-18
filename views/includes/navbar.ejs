@@ -51,7 +51,10 @@
         <a class="nav-link" href="/logout"><b>Logout</b></a>
         <% } %> -->
 
-        <% if (!currUser) { %>
+
+
+
+        <!-- <% if (!currUser) { %>
 
     <li class="nav-item">
         <a
@@ -81,6 +84,24 @@
             Logout
         </a>
     </li>
+
+<% } %> -->
+
+<% if (currUser) { %>
+
+    <a href="/logout" class="nav-link">
+        Logout
+    </a>
+
+<% } else { %>
+
+    <a href="/login" class="nav-link">
+        Login
+    </a>
+
+    <a href="/signup" class="nav-link">
+        Sign Up
+    </a>
 
 <% } %>
       </div>
