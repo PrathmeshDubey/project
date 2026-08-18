@@ -13,8 +13,9 @@ const geocodingClient = {
 
 module.exports.index = async (req, res) => {
     const allListings = await Listing.find({}); 
-    res.render("listings/index.ejs", {allListings})
-}
+    console.log("Total listings:", allListings.length);
+    res.render("listings/index.ejs", {allListings});
+};
 
 
 module.exports.renderNewForm = (req, res) => {
